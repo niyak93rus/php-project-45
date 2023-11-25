@@ -11,5 +11,39 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
+require_once __DIR__ . '/../src/Engine.php';
+
 use function cli\line;
 use function cli\prompt;
+
+$name = Engine\sayHello();
+$question = 'What is the result of the expression?';
+Engine\explainRules($question);
+
+$correctAnswersCount = 0;
+
+while ($correctAnswersCount < Engine\ROUNDS) {
+    $num1 = rand(0, 100);
+    $num2 = rand(0, 100);
+
+    $operations = ['+', '*'];
+    $currentOperation = $operations[array_rand($operations)];
+    $content = "{$num1} {$currentOperation} {$num2}";
+    Engine\askQuestion($content);
+
+    if ($currentOperation === '+') {
+        $correctAnswer = $num1 + $num2;
+    } else {
+        $correctAnswer = $num1 * $num2;
+    }
+
+    $currentAnswer = Engine\getAnswer();
+
+    if (Engine\checkAnswer($currentAnswer, $correctAnswer, $name)) {
+        $correctAnswersCount++;
+    } else {
+        return;
+    }
+}
+
+Engine\congratulate($name);

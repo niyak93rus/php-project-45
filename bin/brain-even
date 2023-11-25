@@ -21,10 +21,9 @@ function isEven(int $num)
     return $num % 2 === 0 ? true : false;
 }
 
-line("Welcome to the Brain Games!");
-$name = prompt("May I have your name?", false, $marker = ' ');
-line("Hello, %s!", $name);
-line('Answer "yes" if the number is even, otherwise answer "no".');
+$name = Engine\sayHello();
+$rule = 'Answer "yes" if the number is even, otherwise answer "no".';
+Engine\explainRules($rule);
 
 $correctAnswersCount = 0;
 
@@ -35,12 +34,11 @@ while ($correctAnswersCount < Engine\ROUNDS) {
     $currentAnswer = Engine\getAnswer();
     $correctAnswer = isEven($number) ? 'yes' : 'no';
 
-    if (Engine\checkAnswer($currentAnswer, $correctAnswer)) {
+    if (Engine\checkAnswer($currentAnswer, $correctAnswer, $name)) {
         $correctAnswersCount++;
     } else {
-        line("Let's try again, {$name}!");
         return;
     }
 }
 
-line("Congratulations, {$name}!");
+Engine\congratulate($name);
