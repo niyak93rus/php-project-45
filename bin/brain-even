@@ -11,34 +11,6 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-require_once __DIR__ . '/../src/Engine.php';
+require_once(__DIR__ . '../../src/Games/Even.php');
 
-use function cli\line;
-use function cli\prompt;
-
-function isEven(int $num)
-{
-    return $num % 2 === 0 ? true : false;
-}
-
-$name = Engine\sayHello();
-$rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-Engine\explainRules($rule);
-
-$correctAnswersCount = 0;
-
-while ($correctAnswersCount < Engine\ROUNDS) {
-    $number = rand(0, 100);
-    Engine\askQuestion($number);
-
-    $currentAnswer = Engine\getAnswer();
-    $correctAnswer = isEven($number) ? 'yes' : 'no';
-
-    if (Engine\checkAnswer($currentAnswer, $correctAnswer, $name)) {
-        $correctAnswersCount++;
-    } else {
-        return;
-    }
-}
-
-Engine\congratulate($name);
+Php\Games\Even\playEven();
