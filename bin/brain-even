@@ -52,7 +52,7 @@ line('Answer "yes" if the number is even, otherwise answer "no".');
 $correctAnswersCount = 0;
 while ($correctAnswersCount < 3) {
     $number = askQuestion();
-    $currentAnswer = prompt("Your answer: ");
+    $currentAnswer = prompt("Your answer");
 
     if (checkAnswer($currentAnswer, $number, $name)) {
         $correctAnswersCount++;
@@ -62,4 +62,4 @@ while ($correctAnswersCount < 3) {
     }
 }
 
-line('Congratulations, {$name}!');
+line("Congratulations, {$name}!");
