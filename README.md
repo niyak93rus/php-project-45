@@ -5,4 +5,4 @@ CodeClimate:
 [![Maintainability](https://api.codeclimate.com/v1/badges/710c084e2414fdd9256a/maintainability)](https://codeclimate.com/github/niyak93rus/php-project-45/maintainability)
 
 asciinema:
-[![asciicast](https://asciinema.org/a/r4gGkt6wjFutTzoxWs703wRBT.svg)](https://asciinema.org/a/r4gGkt6wjFutTzoxWs703wRBT)
+<a href="https://asciinema.org/a/r4gGkt6wjFutTzoxWs703wRBT" target="_blank"><img src="https://asciinema.org/a/r4gGkt6wjFutTzoxWs703wRBT.svg" width="400" /></a>
