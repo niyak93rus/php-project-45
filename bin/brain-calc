@@ -26,13 +26,15 @@ while ($correctAnswersCount < Engine\ROUNDS) {
     $num1 = rand(0, 100);
     $num2 = rand(0, 100);
 
-    $operations = ['+', '*'];
+    $operations = ['+', '-', '*'];
     $currentOperation = $operations[array_rand($operations)];
     $content = "{$num1} {$currentOperation} {$num2}";
     Engine\askQuestion($content);
 
     if ($currentOperation === '+') {
         $correctAnswer = $num1 + $num2;
+    } else if ($currentOperation === '-') {
+        $correctAnswer = $num1 - $num2;
     } else {
         $correctAnswer = $num1 * $num2;
     }
