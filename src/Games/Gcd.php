@@ -15,7 +15,7 @@ use function Engine\getAnswer;
 use function Engine\checkAnswer;
 use function Engine\congratulate;
 
-function gcd ($a, $b) {
+function findGcd ($a, $b) {
     return $b ? gcd($b, $a % $b) : $a;
 }
 
@@ -32,7 +32,7 @@ function playGcd()
         $num2 = rand(0, 100);
     
         askQuestion("{$num1} {$num2}");
-        $correctAnswer = gcd($num1, $num2);   
+        $correctAnswer = findGcd($num1, $num2);   
         $currentAnswer = getAnswer();
     
         if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
