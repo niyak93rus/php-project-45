@@ -11,6 +11,8 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
+require_once __DIR__ . '/../src/Engine.php';
+
 use function cli\line;
 use function cli\prompt;
 
@@ -19,37 +21,21 @@ function isEven(int $num)
     return $num % 2 === 0 ? true : false;
 }
 
-function askQuestion()
-{
-    $num = random_int(0, 100);
-    line("Question: {$num}");
-    return $num;
-}
-
-function checkAnswer(string $answer, int $num, $name)
-{
-    $correctAnswer = isEven($num) ? 'yes' : 'no';
-
-    if ($answer === $correctAnswer) {
-        line('Correct!');
-        return true;
-    } else {
-        line("{$answer} is wrong answer ;(. Correct answer was {$correctAnswer}.");
-        return false;
-    }
-}
-
 line("Welcome to the Brain Games!");
 $name = prompt("May I have your name?", false, $marker = ' ');
 line("Hello, %s!", $name);
 line('Answer "yes" if the number is even, otherwise answer "no".');
 
 $correctAnswersCount = 0;
-while ($correctAnswersCount < 3) {
-    $number = askQuestion();
-    $currentAnswer = prompt("Your answer");
 
-    if (checkAnswer($currentAnswer, $number, $name)) {
+while ($correctAnswersCount < Engine\ROUNDS) {
+    $number = rand(0, 100);
+    Engine\askQuestion($number);
+
+    $currentAnswer = Engine\getAnswer();
+    $correctAnswer = isEven($number) ? 'yes' : 'no';
+
+    if (Engine\checkAnswer($currentAnswer, $correctAnswer)) {
         $correctAnswersCount++;
     } else {
         line("Let's try again, {$name}!");
