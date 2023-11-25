@@ -14,11 +14,6 @@ if (file_exists($autoloadPath1)) {
 use function cli\line;
 use function cli\prompt;
 
-function sayHello()
-{
-    
-}
-
 function isEven(int $num)
 {
     return $num % 2 === 0 ? true : false;
