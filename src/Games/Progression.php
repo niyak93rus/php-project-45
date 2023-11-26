@@ -20,9 +20,9 @@ function playProgression()
     $name = sayHello();
     $question = 'What number is missing in the progression?';
     explainRules($question);
-    
+
     $correctAnswersCount = 0;
-    
+
     while ($correctAnswersCount < ROUNDS) {
         $length = rand(5, 10);
         $step = rand(1, 10);
@@ -34,16 +34,16 @@ function playProgression()
         $missingItemKey = array_rand($numbers);
         $correctAnswer = $numbers[$missingItemKey];
         $numbers[$missingItemKey] = '..';
-    
+
         askQuestion(implode(' ', $numbers));
         $currentAnswer = getAnswer();
-    
+
         if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
             $correctAnswersCount++;
         } else {
             return;
         }
     }
-    
+
     congratulate($name);
 }
