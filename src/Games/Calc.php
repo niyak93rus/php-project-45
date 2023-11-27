@@ -4,8 +4,6 @@ namespace Php\Games\Calc;
 
 require_once __DIR__ . '/../Engine.php';
 
-use function cli\line;
-use function cli\prompt;
 use function Engine\sayHello;
 use function Engine\askQuestion;
 use function Engine\explainRules;
@@ -15,7 +13,7 @@ use function Engine\congratulate;
 
 use const Engine\ROUNDS;
 
-function playCalc()
+function playCalc(): void
 {
     $name = sayHello();
     $question = 'What is the result of the expression?';
@@ -46,7 +44,6 @@ function playCalc()
 
         $currentAnswer = getAnswer();
 
-        // TODO: Rewrite
         if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
             $correctAnswersCount++;
         } else {
