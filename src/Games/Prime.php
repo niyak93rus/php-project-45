@@ -12,7 +12,7 @@ use function Engine\getAnswer;
 use function Engine\checkAnswer;
 use function Engine\congratulate;
 
-function isPrime($num)
+function isPrime(int $num): bool
 {
     if ($num == 1) {
         return false;
@@ -27,7 +27,7 @@ function isPrime($num)
     return true;
 }
 
-function playPrime()
+function playPrime(): void
 {
     $name = sayHello();
     $rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -37,7 +37,7 @@ function playPrime()
 
     while ($correctAnswersCount < ROUNDS) {
         $number = rand(0, 100);
-        askQuestion($number);
+        askQuestion((string) $number);
 
         $currentAnswer = getAnswer();
         $correctAnswer = isPrime($number) ? 'yes' : 'no';
