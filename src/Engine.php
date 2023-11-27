@@ -32,7 +32,7 @@ function getAnswer(): string
 
 function checkAnswer(string $userAnswer, mixed $correctAnswer, string $name): bool
 {
-    if ((string) $userAnswer === (string) $correctAnswer) {
+    if ($userAnswer === (string) $correctAnswer) {
         line('Correct!');
         return true;
     } else {
