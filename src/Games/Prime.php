@@ -4,9 +4,6 @@ namespace Php\Games\Prime;
 
 require_once __DIR__ . '/../Engine.php';
 
-use function cli\line;
-use function cli\prompt;
-
 use const Engine\ROUNDS;
 use function Engine\sayHello;
 use function Engine\askQuestion;

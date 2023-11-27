@@ -2,10 +2,10 @@
 
 namespace Engine;
 
+const ROUNDS = 3;
+
 use function cli\line;
 use function cli\prompt;
-
-const ROUNDS = 3;
 
 function sayHello()
 {
