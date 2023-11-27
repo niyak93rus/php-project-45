@@ -12,13 +12,13 @@ use function Engine\getAnswer;
 use function Engine\checkAnswer;
 use function Engine\congratulate;
 
-// function findGcd(int $a, mixed $b): int
-// {
-//     return $b ? findGcd($b, $a % $b) : $a;
-// }
+function findGcd(int $a, int $b): int
+{
+    if ($b === 0) {
+        return $a;
+    }
 
-function findGcd($a,$b) {
-    return ($a % $b) ? findGcd($b,$a % $b) : $b;
+    return findGcd($b, $a % $b);
 }
 
 function playGcd(): void
