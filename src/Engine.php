@@ -7,30 +7,30 @@ const ROUNDS = 3;
 use function cli\line;
 use function cli\prompt;
 
-function sayHello()
+function sayHello(): string
 {
     line("Welcome to the Brain Games!");
-    $name = prompt("May I have your name?", null, ' ');
+    $name = prompt("May I have your name?", '', ' ');
     line("Hello, %s!", $name);
     return $name;
 }
 
-function explainRules($rules)
+function explainRules(string $rules): void
 {
     line($rules);
 }
 
-function askQuestion($content)
+function askQuestion(string $content): void
 {
     line("Question: {$content}");
 }
 
-function getAnswer()
+function getAnswer(): string
 {
     return prompt("Your answer");
 }
 
-function checkAnswer(string $userAnswer, $correctAnswer, $name)
+function checkAnswer(string $userAnswer, mixed $correctAnswer, string $name): bool
 {
     if ((string) $userAnswer === (string) $correctAnswer) {
         line('Correct!');
@@ -42,7 +42,7 @@ function checkAnswer(string $userAnswer, $correctAnswer, $name)
     }
 }
 
-function congratulate($name)
+function congratulate(string $name): void
 {
     line("Congratulations, {$name}!");
 }
