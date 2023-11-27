@@ -12,13 +12,13 @@ use function Engine\getAnswer;
 use function Engine\checkAnswer;
 use function Engine\congratulate;
 
+function isEven(int $num)
+{
+    return $num % 2 === 0 ? true : false;
+}
+
 function playEven()
 {
-    function isEven(int $num)
-    {
-        return $num % 2 === 0 ? true : false;
-    }
-
     $name = sayHello();
     $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
     explainRules($rule);
