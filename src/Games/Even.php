@@ -12,12 +12,12 @@ use function Engine\getAnswer;
 use function Engine\checkAnswer;
 use function Engine\congratulate;
 
-function isEven(int $num)
+function isEven(int $num): bool
 {
     return $num % 2 === 0 ? true : false;
 }
 
-function playEven()
+function playEven(): void
 {
     $name = sayHello();
     $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -27,7 +27,7 @@ function playEven()
 
     while ($correctAnswersCount < ROUNDS) {
         $number = rand(0, 100);
-        askQuestion($number);
+        askQuestion((string) $number);
 
         $currentAnswer = getAnswer();
         $correctAnswer = isEven($number) ? 'yes' : 'no';
