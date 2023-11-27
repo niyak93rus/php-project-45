@@ -12,12 +12,12 @@ use function Engine\getAnswer;
 use function Engine\checkAnswer;
 use function Engine\congratulate;
 
-function findGcd($a, $b)
+function findGcd(int $a, int $b): int
 {
     return $b ? findGcd($b, $a % $b) : $a;
 }
 
-function playGcd()
+function playGcd(): void
 {
     $name = sayHello();
     $rule = 'Find the greatest common divisor of given numbers.';
