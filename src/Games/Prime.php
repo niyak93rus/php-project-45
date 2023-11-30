@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Games\Prime;
 
-require_once __DIR__ . '/../Engine.php';
-
 use const App\Engine\ROUNDS;
 use function App\Engine\sayHello;
 use function App\Engine\askQuestion;
