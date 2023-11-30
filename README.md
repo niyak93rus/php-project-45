@@ -13,7 +13,17 @@ cd php-project-45
 make install
 ```
 
-### asciinema:
+## How to play games:
+There are 5 games in this CLI app: brain-calc, brain-even, brain-gcd, brain-prime, brain-progression.
+To start playing just type make GAME_NAME, type your name, see the question and answer!
+
+```bash
+# make GAME_NAME
+make brain-calc
+```
+See asciinemas below for examples!
+
+### asciinemas:
 Brain-even:
 <a href="https://asciinema.org/a/r4gGkt6wjFutTzoxWs703wRBT" target="_blank"><img src="https://asciinema.org/a/r4gGkt6wjFutTzoxWs703wRBT.svg" width="800" height="200" /></a>
 
