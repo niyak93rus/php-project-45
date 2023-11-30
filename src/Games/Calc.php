@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Games\Calc;
 
 require_once __DIR__ . '/../Engine.php';
