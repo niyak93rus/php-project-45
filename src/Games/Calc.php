@@ -1,17 +1,17 @@
 <?php
 
-namespace Php\Games\Calc;
+namespace App\Games\Calc;
 
 require_once __DIR__ . '/../Engine.php';
 
-use function Engine\sayHello;
-use function Engine\askQuestion;
-use function Engine\explainRules;
-use function Engine\getAnswer;
-use function Engine\checkAnswer;
-use function Engine\congratulate;
+use function App\Engine\sayHello;
+use function App\Engine\askQuestion;
+use function App\Engine\explainRules;
+use function App\Engine\getAnswer;
+use function App\Engine\checkAnswer;
+use function App\Engine\congratulate;
 
-use const Engine\ROUNDS;
+use const App\Engine\ROUNDS;
 
 function playCalc(): void
 {

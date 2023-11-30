@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
 
 require_once(__DIR__ . '../../src/Games/Even.php');
 
-Php\Games\Even\playEven();
+App\Games\Even\playEven();

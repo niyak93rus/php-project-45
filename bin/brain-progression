@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
 
 require_once(__DIR__ . '../../src/Games/Progression.php');
 
-Php\Games\Progression\playProgression();
+App\Games\Progression\playProgression();

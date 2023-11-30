@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
 
 require_once(__DIR__ . '../../src/Games/Gcd.php');
 
-Php\Games\Gcd\playGcd();
+App\Games\Gcd\playGcd();

@@ -1,6 +1,6 @@
 <?php
 
-namespace Engine;
+namespace App\Engine;
 
 const ROUNDS = 3;
 

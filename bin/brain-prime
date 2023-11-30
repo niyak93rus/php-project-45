@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
 
 require_once(__DIR__ . '../../src/Games/Prime.php');
 
-Php\Games\Prime\playPrime();
+App\Games\Prime\playPrime();
