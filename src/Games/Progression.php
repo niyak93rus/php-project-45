@@ -18,9 +18,7 @@ function playProgression(): void
     $question = 'What number is missing in the progression?';
     explainRules($question);
 
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < ROUNDS) {
+    for ($i = 0; $i < ROUNDS; $i++) {
         $length = rand(5, 10);
         $step = rand(1, 10);
         $start = rand(0, 100);
@@ -36,8 +34,6 @@ function playProgression(): void
         $currentAnswer = getAnswer();
 
         if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
-            $correctAnswersCount++;
-        } else {
             return;
         }
     }

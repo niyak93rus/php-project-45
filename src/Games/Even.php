@@ -23,18 +23,14 @@ function playEven(): void
     $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
     explainRules($rule);
 
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < ROUNDS) {
+    for ($i = 0; $i < ROUNDS; $i++) {
         $number = rand(0, 100);
         askQuestion((string) $number);
 
         $currentAnswer = getAnswer();
         $correctAnswer = isEven($number) ? 'yes' : 'no';
 
-        if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
-            $correctAnswersCount++;
-        } else {
+        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
             return;
         }
     }

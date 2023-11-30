@@ -27,9 +27,7 @@ function playGcd(): void
     $rule = 'Find the greatest common divisor of given numbers.';
     explainRules($rule);
 
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < ROUNDS) {
+    for ($i = 0; $i < ROUNDS; $i++) {
         $num1 = rand(0, 100);
         $num2 = rand(0, 100);
 
@@ -37,9 +35,7 @@ function playGcd(): void
         $correctAnswer = findGcd($num1, $num2);
         $currentAnswer = getAnswer();
 
-        if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
-            $correctAnswersCount++;
-        } else {
+        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
             return;
         }
     }

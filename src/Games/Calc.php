@@ -19,9 +19,7 @@ function playCalc(): void
     $question = 'What is the result of the expression?';
     explainRules($question);
 
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < ROUNDS) {
+    for ($i = 0; $i < ROUNDS; $i ++) {
         $num1 = rand(0, 100);
         $num2 = rand(0, 100);
 
@@ -43,10 +41,7 @@ function playCalc(): void
         }
 
         $currentAnswer = getAnswer();
-
-        if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
-            $correctAnswersCount++;
-        } else {
+        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
             return;
         }
     }

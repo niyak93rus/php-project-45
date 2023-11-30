@@ -33,18 +33,14 @@ function playPrime(): void
     $rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     explainRules($rule);
 
-    $correctAnswersCount = 0;
-
-    while ($correctAnswersCount < ROUNDS) {
+    for ($i = 0; $i < ROUNDS; $i++) {
         $number = rand(0, 100);
         askQuestion((string) $number);
 
         $currentAnswer = getAnswer();
         $correctAnswer = isPrime($number) ? 'yes' : 'no';
 
-        if (checkAnswer($currentAnswer, $correctAnswer, $name)) {
-            $correctAnswersCount++;
-        } else {
+        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
             return;
         }
     }
