@@ -20,7 +20,7 @@ function playCalc(): void
     $question = 'What is the result of the expression?';
     explainRules($question);
 
-    for ($i = 0; $i < ROUNDS; $i ++) {
+    for ($i = 0; $i < ROUNDS; $i++) {
         $num1 = getRandomInt();
         $num2 = getRandomInt();
 

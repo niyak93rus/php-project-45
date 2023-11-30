@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Games\Progression;
 
-use const App\Engine\ROUNDS;
 use function App\Engine\sayHello;
 use function App\Engine\askQuestion;
 use function App\Engine\explainRules;
 use function App\Engine\getAnswer;
 use function App\Engine\checkAnswer;
 use function App\Engine\congratulate;
+
+use const App\Engine\ROUNDS;
 
 function playProgression(): void
 {
