@@ -11,6 +11,7 @@ use function App\Engine\explainRules;
 use function App\Engine\getAnswer;
 use function App\Engine\checkAnswer;
 use function App\Engine\congratulate;
+use function App\Engine\getRandomInt;
 
 function isEven(int $num): bool
 {
@@ -24,7 +25,7 @@ function playEven(): void
     explainRules($rule);
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $number = rand(0, 100);
+        $number = getRandomInt();
         askQuestion((string) $number);
 
         $currentAnswer = getAnswer();

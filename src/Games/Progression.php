@@ -18,9 +18,13 @@ function playProgression(): void
     $question = 'What number is missing in the progression?';
     explainRules($question);
 
+    $minLength = 5;
+    $maxLength = 10;
+    $minStep = 1;
+
     for ($i = 0; $i < ROUNDS; $i++) {
-        $length = rand(5, 10);
-        $step = rand(1, 10);
+        $length = rand($minLength, $maxLength);
+        $step = rand($minStep, $maxLength);
         $start = rand(0, 100);
         $end = $start + $step * $length;
 

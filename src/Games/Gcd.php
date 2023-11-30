@@ -11,6 +11,7 @@ use function App\Engine\explainRules;
 use function App\Engine\getAnswer;
 use function App\Engine\checkAnswer;
 use function App\Engine\congratulate;
+use function App\Engine\getRandomInt;
 
 function findGcd(int $a, int $b): int
 {
@@ -28,8 +29,8 @@ function playGcd(): void
     explainRules($rule);
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $num1 = rand(0, 100);
-        $num2 = rand(0, 100);
+        $num1 = getRandomInt();
+        $num2 = getRandomInt();
 
         askQuestion("{$num1} {$num2}");
         $correctAnswer = findGcd($num1, $num2);

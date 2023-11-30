@@ -15,6 +15,11 @@ function sayHello(): string
     return $name;
 }
 
+function getRandomInt(): int
+{
+    return rand(0, 100);
+}
+
 function explainRules(string $rules): void
 {
     line($rules);

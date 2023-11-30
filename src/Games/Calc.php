@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Games\Calc;
 
 use function App\Engine\sayHello;
+use function App\Engine\getRandomInt;
 use function App\Engine\askQuestion;
 use function App\Engine\explainRules;
 use function App\Engine\getAnswer;
@@ -20,8 +21,8 @@ function playCalc(): void
     explainRules($question);
 
     for ($i = 0; $i < ROUNDS; $i ++) {
-        $num1 = rand(0, 100);
-        $num2 = rand(0, 100);
+        $num1 = getRandomInt();
+        $num2 = getRandomInt();
 
         $operations = ['+', '-', '*'];
         $currentOperation = $operations[array_rand($operations)];

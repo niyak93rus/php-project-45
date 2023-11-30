@@ -11,15 +11,16 @@ use function App\Engine\explainRules;
 use function App\Engine\getAnswer;
 use function App\Engine\checkAnswer;
 use function App\Engine\congratulate;
+use function App\Engine\getRandomInt;
 
 function isPrime(int $num): bool
 {
-    if ($num == 1) {
+    if ($num === 1) {
         return false;
     }
 
     for ($i = 2; $i <= $num / 2; $i++) {
-        if ($num % $i == 0) {
+        if ($num % $i === 0) {
             return false;
         }
     }
@@ -34,7 +35,7 @@ function playPrime(): void
     explainRules($rule);
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $number = rand(0, 100);
+        $number = getRandomInt();
         askQuestion((string) $number);
 
         $currentAnswer = getAnswer();
