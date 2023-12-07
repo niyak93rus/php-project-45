@@ -22,6 +22,7 @@ function playGcd(): void
     $rule = 'Find the greatest common divisor of given numbers.';
 
     $questions = [];
+    $correctAnswers = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
         $num1 = rand(0, 100);
