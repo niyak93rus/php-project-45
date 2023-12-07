@@ -11,6 +11,7 @@ use function App\Engine\getAnswer;
 use function App\Engine\checkAnswer;
 use function App\Engine\congratulate;
 use function App\Engine\getRandomInt;
+use function App\Engine\playGame;
 
 use const App\Engine\ROUNDS;
 
@@ -19,23 +20,23 @@ function isEven(int $num): bool
     return $num % 2 === 0 ? true : false;
 }
 
+// $correctAnswer = function($numbers) {
+//     return isEven($number) ? 'yes' : 'no';
+// };
+
 function playEven(): void
 {
-    $name = sayHello();
     $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
-    explainRules($rule);
 
+    $numbers = [];
     for ($i = 0; $i < ROUNDS; $i++) {
-        $number = getRandomInt();
-        askQuestion((string) $number);
-
-        $currentAnswer = getAnswer();
-        $correctAnswer = isEven($number) ? 'yes' : 'no';
-
-        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
-            return;
-        }
+        $numbers[] = rand(0, 100);
+    }
+    
+    $correctAnswers = [];
+    for ($i = 0; $i < count($numbers); $i++) {
+        $correctAnswers[] = isEven($numbers[$i]) ? 'yes' : 'no';
     }
 
-    congratulate($name);
+    playGame($rule, $numbers, $correctAnswers);
 }

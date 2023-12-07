@@ -20,9 +20,9 @@ function getRandomInt(): int
     return rand(0, 100);
 }
 
-function explainRules(string $rules): void
+function explainRule(string $rule): void
 {
-    line($rules);
+    line($rule);
 }
 
 function askQuestion(string $content): void
@@ -30,12 +30,12 @@ function askQuestion(string $content): void
     line("Question: {$content}");
 }
 
-function getAnswer(): string
+function getUserAnswer(): string
 {
     return prompt("Your answer");
 }
 
-function checkAnswer(string $userAnswer, mixed $correctAnswer, string $name): bool
+function checkAnswer(string $userAnswer, string $correctAnswer, string $name): bool
 {
     if ($userAnswer === (string) $correctAnswer) {
         line('Correct!');
@@ -50,4 +50,20 @@ function checkAnswer(string $userAnswer, mixed $correctAnswer, string $name): bo
 function congratulate(string $name): void
 {
     line("Congratulations, {$name}!");
+}
+
+function playGame($rule, $questions, $correctAnswers) {
+    $name = sayHello();
+
+    for ($i = 0; $i < ROUNDS; $i++) {
+        explainRule($rule);
+        askQuestion($questions[$i]);
+        $userAnswer = getUserAnswer();
+
+        if (checkAnswer($userAnswer, $correctAnswers[$i], $name) === false) {
+            return;
+        }
+    }
+
+    congratulate($name);
 }
