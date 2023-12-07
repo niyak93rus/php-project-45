@@ -20,10 +20,6 @@ function isEven(int $num): bool
     return $num % 2 === 0 ? true : false;
 }
 
-// $correctAnswer = function($numbers) {
-//     return isEven($number) ? 'yes' : 'no';
-// };
-
 function playEven(): void
 {
     $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
