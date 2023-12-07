@@ -4,20 +4,15 @@ declare(strict_types=1);
 
 namespace App\Games\Progression;
 
-use function App\Engine\sayHello;
-use function App\Engine\askQuestion;
-use function App\Engine\explainRules;
-use function App\Engine\getAnswer;
-use function App\Engine\checkAnswer;
-use function App\Engine\congratulate;
+use function App\Engine\playGame;
 
 use const App\Engine\ROUNDS;
 
 function playProgression(): void
 {
-    $name = sayHello();
-    $question = 'What number is missing in the progression?';
-    explainRules($question);
+    $rule = 'What number is missing in the progression?';
+    $questions = [];
+    $correctAnswers = [];
 
     $minLength = 5;
     $maxLength = 10;
@@ -32,16 +27,11 @@ function playProgression(): void
         $numbers = range($start, $end, $step);
 
         $missingItemKey = array_rand($numbers);
-        $correctAnswer = $numbers[$missingItemKey];
+        $correctAnswers[] = $numbers[$missingItemKey];
         $numbers[$missingItemKey] = '..';
 
-        askQuestion(implode(' ', $numbers));
-        $currentAnswer = getAnswer();
-
-        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
-            return;
-        }
+        $questions[] = implode(' ', $numbers);
     }
 
-    congratulate($name);
+    playGame($rule, $questions, $correctAnswers);
 }
