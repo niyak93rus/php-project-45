@@ -4,13 +4,7 @@ declare(strict_types=1);
 
 namespace App\Games\Gcd;
 
-use function App\Engine\sayHello;
-use function App\Engine\askQuestion;
-use function App\Engine\explainRules;
-use function App\Engine\getAnswer;
-use function App\Engine\checkAnswer;
-use function App\Engine\congratulate;
-use function App\Engine\getRandomInt;
+use function App\Engine\playGame;
 
 use const App\Engine\ROUNDS;
 
@@ -25,22 +19,17 @@ function findGcd(int $a, int $b): int
 
 function playGcd(): void
 {
-    $name = sayHello();
     $rule = 'Find the greatest common divisor of given numbers.';
-    explainRules($rule);
+
+    $questions = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $num1 = getRandomInt();
-        $num2 = getRandomInt();
+        $num1 = rand(0, 100);
+        $num2 = rand(0, 100);
 
-        askQuestion("{$num1} {$num2}");
-        $correctAnswer = findGcd($num1, $num2);
-        $currentAnswer = getAnswer();
-
-        if (checkAnswer($currentAnswer, $correctAnswer, $name) === false) {
-            return;
-        }
+        $questions[] = "{$num1} {$num2}";
+        $correctAnswers[] = findGcd($num1, $num2);
     }
 
-    congratulate($name);
+    playGame($rule, $questions, $correctAnswers);
 }
