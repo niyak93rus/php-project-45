@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Engine;
 
 const ROUNDS = 3;
@@ -8,11 +10,6 @@ use function cli\line;
 use function cli\prompt;
 
 use function App\Cli\sayHello;
-
-function getRandomInt(): int
-{
-    return rand(0, 100);
-}
 
 function explainRule(string $rule): void
 {
