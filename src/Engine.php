@@ -6,6 +6,7 @@ const ROUNDS = 3;
 
 use function cli\line;
 use function cli\prompt;
+
 use function App\Cli\sayHello;
 
 function getRandomInt(): int
