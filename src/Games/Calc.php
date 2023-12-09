@@ -19,10 +19,10 @@ function playCalc(): void
     for ($i = 0; $i < ROUNDS; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
-        
+
         $currentOperation = $operations[array_rand($operations)];
         $questions[] = "{$num1} {$currentOperation} {$num2}";
-    
+
         switch ($currentOperation) {
             case '+':
                 $correctAnswers[] = (string) ($num1 + $num2);
@@ -34,7 +34,7 @@ function playCalc(): void
                 $correctAnswers[] = (string) ($num1 * $num2);
                 break;
         }
-    }    
-    
+    }
+
     playGame($rule, $questions, $correctAnswers);
 }

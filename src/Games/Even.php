@@ -22,7 +22,7 @@ function playEven(): void
     for ($i = 0; $i < ROUNDS; $i++) {
         $numbers[] = (string) getRandomNumber();
     }
-    
+
     $correctAnswers = [];
     for ($i = 0; $i < count($numbers); $i++) {
         $correctAnswers[] = isEven((int) $numbers[$i]) ? 'yes' : 'no';

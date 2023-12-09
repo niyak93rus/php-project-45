@@ -50,7 +50,8 @@ function congratulate(string $name): void
     line("Congratulations, {$name}!");
 }
 
-function playGame($rule, $questions, $correctAnswers) {
+function playGame(string $rule, array $questions, array $correctAnswers): void
+{
     $name = sayHello();
 
     for ($i = 0; $i < ROUNDS; $i++) {
