@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Games\Prime;
 
 use function App\Engine\playGame;
+use function App\Engine\getRandomNumber;
 
 use const App\Engine\ROUNDS;
 
@@ -30,7 +31,7 @@ function playPrime(): void
     $correctAnswers = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $number = rand(0, 100);
+        $number = getRandomNumber();
         $questions[] = ((string) $number);
         $correctAnswers[] = isPrime($number) ? 'yes' : 'no';
     }

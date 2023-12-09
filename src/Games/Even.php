@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Games\Even;
 
 use function App\Engine\playGame;
+use function App\Engine\getRandomNumber;
 
 use const App\Engine\ROUNDS;
 
@@ -19,12 +20,12 @@ function playEven(): void
 
     $numbers = [];
     for ($i = 0; $i < ROUNDS; $i++) {
-        $numbers[] = rand(0, 100);
+        $numbers[] = (string) getRandomNumber();
     }
     
     $correctAnswers = [];
     for ($i = 0; $i < count($numbers); $i++) {
-        $correctAnswers[] = isEven($numbers[$i]) ? 'yes' : 'no';
+        $correctAnswers[] = isEven((int) $numbers[$i]) ? 'yes' : 'no';
     }
 
     playGame($rule, $numbers, $correctAnswers);

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Games\Gcd;
 
 use function App\Engine\playGame;
+use function App\Engine\getRandomNumber;
 
 use const App\Engine\ROUNDS;
 
@@ -25,11 +26,11 @@ function playGcd(): void
     $correctAnswers = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $num1 = rand(0, 100);
-        $num2 = rand(0, 100);
+        $num1 = getRandomNumber();
+        $num2 = getRandomNumber();
 
         $questions[] = "{$num1} {$num2}";
-        $correctAnswers[] = findGcd($num1, $num2);
+        $correctAnswers[] = (string) findGcd($num1, $num2);
     }
 
     playGame($rule, $questions, $correctAnswers);
