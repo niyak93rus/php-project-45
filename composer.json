@@ -22,6 +22,7 @@
       ],
       "autoload": {
         "files": [
+            "src/Autoload.php",
             "src/Cli.php",
             "src/Engine.php",
             "src/Games/Calc.php",
