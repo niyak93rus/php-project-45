@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Games\Calc;
 
+use function cli\line;
 use function App\Engine\playGame;
 use function App\Engine\getRandomNumber;
 
@@ -33,7 +34,8 @@ function playCalc(): void
                 $correctAnswer = (string) ($num1 * $num2);
                 break;
             default:
-                throw new Exception('Unknown operation');
+                line('Unnkown operation');
+                return;
         }
 
         $currentRoundData = [$question, $correctAnswer];
