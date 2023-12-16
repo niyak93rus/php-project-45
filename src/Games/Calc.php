@@ -33,7 +33,7 @@ function playCalc(): void
                 $correctAnswer = (string) ($num1 * $num2);
                 break;
             default:
-                throw new Exception ('Unknown operation');
+                throw new Exception('Unknown operation');
         }
 
         $currentRoundData = [$question, $correctAnswer];
