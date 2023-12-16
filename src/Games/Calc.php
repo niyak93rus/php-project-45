@@ -12,8 +12,7 @@ use const App\Engine\ROUNDS;
 function playCalc(): void
 {
     $rule = 'What is the result of the expression?';
-    $questions = [];
-    $correctAnswers = [];
+    $gameData = [];
     $operations = ['+', '-', '*'];
 
     for ($i = 0; $i < ROUNDS; $i++) {
@@ -21,20 +20,23 @@ function playCalc(): void
         $num2 = getRandomNumber();
 
         $currentOperation = $operations[array_rand($operations)];
-        $questions[] = "{$num1} {$currentOperation} {$num2}";
+        $question = "{$num1} {$currentOperation} {$num2}";
 
         switch ($currentOperation) {
             case '+':
-                $correctAnswers[] = (string) ($num1 + $num2);
+                $correctAnswer = (string) ($num1 + $num2);
                 break;
             case '-':
-                $correctAnswers[] = (string) ($num1 - $num2);
+                $correctAnswer = (string) ($num1 - $num2);
                 break;
             case '*':
-                $correctAnswers[] = (string) ($num1 * $num2);
+                $correctAnswer = (string) ($num1 * $num2);
                 break;
         }
+
+        $currentRoundData = [$question, $correctAnswer];
+        $gameData[] = $currentRoundData;
     }
 
-    playGame($rule, $questions, $correctAnswers);
+    playGame($rule, $gameData);
 }

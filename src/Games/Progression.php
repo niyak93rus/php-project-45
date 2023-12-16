@@ -16,8 +16,7 @@ const MIN_STEP = 1;
 function playProgression(): void
 {
     $rule = 'What number is missing in the progression?';
-    $questions = [];
-    $correctAnswers = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
         $length = rand(MIN_LENGTH, MAX_LENGTH);
@@ -28,11 +27,13 @@ function playProgression(): void
         $numbers = range($start, $end, $step);
 
         $missingItemKey = array_rand($numbers);
-        $correctAnswers[] = (string) $numbers[$missingItemKey];
+        $correctAnswer = (string) $numbers[$missingItemKey];
         $numbers[$missingItemKey] = '..';
+        $question = implode(' ', $numbers);
 
-        $questions[] = implode(' ', $numbers);
+        $currentRoundData = [$question, $correctAnswer];
+        $gameData[] = $currentRoundData;
     }
 
-    playGame($rule, $questions, $correctAnswers);
+    playGame($rule, $gameData);
 }

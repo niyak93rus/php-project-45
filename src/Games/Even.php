@@ -18,15 +18,16 @@ function playEven(): void
 {
     $rule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-    $numbers = [];
+    $gameData = [];
+
     for ($i = 0; $i < ROUNDS; $i++) {
-        $numbers[] = (string) getRandomNumber();
+        $currentRoundData = [];
+        $number = (string) getRandomNumber();
+        $correctAnswer = isEven((int) $number) ? 'yes' : 'no';
+        $currentRoundData = [$number, $correctAnswer];
+        $gameData[] = $currentRoundData;
     }
 
-    $correctAnswers = [];
-    for ($i = 0; $i < count($numbers); $i++) {
-        $correctAnswers[] = isEven((int) $numbers[$i]) ? 'yes' : 'no';
-    }
 
-    playGame($rule, $numbers, $correctAnswers);
+    playGame($rule, $gameData);
 }

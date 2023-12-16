@@ -50,16 +50,33 @@ function congratulate(string $name): void
     line("Congratulations, {$name}!");
 }
 
-function playGame(string $rule, array $questions, array $correctAnswers): void
+// function playGame(string $rule, array $questions, array $correctAnswers): void
+// {
+//     $name = sayHello();
+
+//     for ($i = 0; $i < ROUNDS; $i++) {
+//         explainRule($rule);
+//         askQuestion($questions[$i]);
+//         $userAnswer = getUserAnswer();
+
+//         if (checkAnswer($userAnswer, $correctAnswers[$i], $name) === false) {
+//             return;
+//         }
+//     }
+
+//     congratulate($name);
+// }
+
+function playGame(string $rule, array $gameData): void
 {
     $name = sayHello();
 
-    for ($i = 0; $i < ROUNDS; $i++) {
-        explainRule($rule);
-        askQuestion($questions[$i]);
+    foreach ($gameData as $data) {
+        [$question, $correctAnswer] = $data;
+        askQuestion($question);
         $userAnswer = getUserAnswer();
 
-        if (checkAnswer($userAnswer, $correctAnswers[$i], $name) === false) {
+        if (checkAnswer($userAnswer, $correctAnswer, $name) === false) {
             return;
         }
     }

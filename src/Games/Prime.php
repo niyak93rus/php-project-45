@@ -27,14 +27,15 @@ function isPrime(int $num): bool
 function playPrime(): void
 {
     $rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    $questions = [];
-    $correctAnswers = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
         $number = getRandomNumber();
-        $questions[] = ((string) $number);
-        $correctAnswers[] = isPrime($number) ? 'yes' : 'no';
+        $question = ((string) $number);
+        $correctAnswer = isPrime($number) ? 'yes' : 'no';
+        $currentRoundData = [$question, $correctAnswer];
+        $gameData[] = $currentRoundData;
     }
 
-    playGame($rule, $questions, $correctAnswers);
+    playGame($rule, $gameData);
 }

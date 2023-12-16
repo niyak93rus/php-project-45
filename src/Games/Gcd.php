@@ -22,16 +22,17 @@ function playGcd(): void
 {
     $rule = 'Find the greatest common divisor of given numbers.';
 
-    $questions = [];
-    $correctAnswers = [];
+    $gameData = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
 
-        $questions[] = "{$num1} {$num2}";
-        $correctAnswers[] = (string) findGcd($num1, $num2);
+        $question = "{$num1} {$num2}";
+        $correctAnswer = (string) findGcd($num1, $num2);
+        $currentRoundData = [$question, $correctAnswer];
+        $gameData[] = $currentRoundData;
     }
 
-    playGame($rule, $questions, $correctAnswers);
+    playGame($rule, $gameData);
 }
