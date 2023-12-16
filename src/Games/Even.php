@@ -11,7 +11,7 @@ use const App\Engine\ROUNDS;
 
 function isEven(int $num): bool
 {
-    return $num % 2 === 0 ? true : false;
+    return $num % 2 === 0;
 }
 
 function playEven(): void
