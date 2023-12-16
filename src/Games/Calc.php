@@ -38,8 +38,7 @@ function playCalc(): void
                 return;
         }
 
-        $currentRoundData = [$question, $correctAnswer];
-        $gameData[] = $currentRoundData;
+        $gameData[] = [$question, $correctAnswer];
     }
 
     playGame($rule, $gameData);
