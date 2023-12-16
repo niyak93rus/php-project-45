@@ -32,6 +32,8 @@ function playCalc(): void
             case '*':
                 $correctAnswer = (string) ($num1 * $num2);
                 break;
+            default:
+                throw new Exception ('Unknown operation');
         }
 
         $currentRoundData = [$question, $correctAnswer];
