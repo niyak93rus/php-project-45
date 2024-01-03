@@ -34,7 +34,7 @@ function playCalc(): void
                 $correctAnswer = (string) ($num1 * $num2);
                 break;
             default:
-                line('Unnkown operation');
+                line('Unknown operation');
                 return;
         }
 
