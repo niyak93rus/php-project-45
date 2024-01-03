@@ -21,7 +21,6 @@ function playEven(): void
     $gameData = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $currentRoundData = [];
         $number = (string) getRandomNumber();
         $correctAnswer = isEven((int) $number) ? 'yes' : 'no';
         $currentRoundData = [$number, $correctAnswer];
