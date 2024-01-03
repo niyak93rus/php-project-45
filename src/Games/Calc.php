@@ -4,11 +4,24 @@ declare(strict_types=1);
 
 namespace App\Games\Calc;
 
-use function cli\line;
 use function App\Engine\playGame;
 use function App\Engine\getRandomNumber;
 
 use const App\Engine\ROUNDS;
+
+function calculate(int $num1, int $num2, string $currentOperation): string
+{
+    switch ($currentOperation) {
+        case '+':
+            return (string) ($num1 + $num2);
+        case '-':
+            return (string) ($num1 - $num2);
+        case '*':
+            return (string) ($num1 * $num2);
+        default:
+            return 'Unknown operation';
+    }
+}
 
 function playCalc(): void
 {
@@ -19,25 +32,9 @@ function playCalc(): void
     for ($i = 0; $i < ROUNDS; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
-
         $currentOperation = $operations[array_rand($operations)];
         $question = "{$num1} {$currentOperation} {$num2}";
-
-        switch ($currentOperation) {
-            case '+':
-                $correctAnswer = (string) ($num1 + $num2);
-                break;
-            case '-':
-                $correctAnswer = (string) ($num1 - $num2);
-                break;
-            case '*':
-                $correctAnswer = (string) ($num1 * $num2);
-                break;
-            default:
-                line('Unknown operation');
-                return;
-        }
-
+        $correctAnswer = calculate($num1, $num2, $currentOperation);
         $gameData[] = [$question, $correctAnswer];
     }
 
