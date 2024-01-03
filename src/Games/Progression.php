@@ -32,7 +32,7 @@ function playProgression(): void
     $rule = 'What number is missing in the progression?';
     $gameData = [];
 
-    for ($i = 0; $i < ROUNDS; $i++) {      
+    for ($i = 0; $i < ROUNDS; $i++) {
         $gameData[] = createGameData();
     }
 
