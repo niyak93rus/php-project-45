@@ -13,18 +13,13 @@ const MIN_LENGTH = 5;
 const MAX_LENGTH = 10;
 const MIN_STEP = 1;
 
-function createGameData(): array
+function createProgression(): array
 {
     $length = rand(MIN_LENGTH, MAX_LENGTH);
     $step = rand(MIN_STEP, MAX_LENGTH);
     $start = getRandomNumber();
     $end = $start + $step * $length;
-    $numbers = range($start, $end, $step);
-    $missingItemKey = array_rand($numbers);
-    $correctAnswer = (string) $numbers[$missingItemKey];
-    $numbers[$missingItemKey] = '..';
-    $question = implode(' ', $numbers);
-    return [$question, $correctAnswer];
+    return range($start, $end, $step);
 }
 
 function playProgression(): void
@@ -33,7 +28,12 @@ function playProgression(): void
     $gameData = [];
 
     for ($i = 1; $i <= ROUNDS; $i++) {
-        $gameData[] = createGameData();
+        $numbers = createProgression();
+        $missingItemKey = array_rand($numbers);
+        $correctAnswer = (string) $numbers[$missingItemKey];
+        $numbers[$missingItemKey] = '..';
+        $question = implode(' ', $numbers);
+        $gameData[] = [$question, $correctAnswer];
     }
 
     playGame($rule, $gameData);
