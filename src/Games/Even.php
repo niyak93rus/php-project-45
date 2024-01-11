@@ -21,12 +21,11 @@ function playEven(): void
     $gameData = [];
 
     for ($i = 0; $i < ROUNDS; $i++) {
-        $number = (string) getRandomNumber();
-        $correctAnswer = isEven((int) $number) ? 'yes' : 'no';
-        $currentRoundData = [$number, $correctAnswer];
+        $number = getRandomNumber();
+        $correctAnswer = isEven($number) ? 'yes' : 'no';
+        $currentRoundData = [(string) $number, $correctAnswer];
         $gameData[] = $currentRoundData;
     }
-
 
     playGame($rule, $gameData);
 }
