@@ -24,7 +24,7 @@ function playGcd(): void
 
     $gameData = [];
 
-    for ($i = 0; $i < ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
 

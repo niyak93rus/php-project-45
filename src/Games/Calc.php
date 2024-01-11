@@ -29,7 +29,7 @@ function playCalc(): void
     $gameData = [];
     $operations = ['+', '-', '*'];
 
-    for ($i = 0; $i < ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
         $currentOperation = $operations[array_rand($operations)];

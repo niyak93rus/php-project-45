@@ -29,7 +29,7 @@ function playPrime(): void
     $rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
     $gameData = [];
 
-    for ($i = 0; $i < ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS; $i++) {
         $number = getRandomNumber();
         $question = ((string) $number);
         $correctAnswer = isPrime($number) ? 'yes' : 'no';
