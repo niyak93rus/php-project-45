@@ -11,7 +11,7 @@ use const App\Engine\ROUNDS;
 
 function isPrime(int $num): bool
 {
-    if ($num === 1 || $num === 0) {
+    if ($num < 2) {
         return false;
     }
 
