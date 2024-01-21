@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Games\Calc;
 
 use function App\Engine\playGame;
-use function App\Engine\getRandomNumber;
+use function App\Random\getRandomNumber;
 
-use const App\Engine\ROUNDS;
+use const App\Engine\ROUNDS_COUNT;
 
 function calculate(int $num1, int $num2, string $currentOperation): string
 {
@@ -29,7 +29,7 @@ function playCalc(): void
     $gameData = [];
     $operations = ['+', '-', '*'];
 
-    for ($i = 1; $i <= ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS_COUNT; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
         $currentOperation = $operations[array_rand($operations)];

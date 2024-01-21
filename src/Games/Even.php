@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Games\Even;
 
 use function App\Engine\playGame;
-use function App\Engine\getRandomNumber;
+use function App\Random\getRandomNumber;
 
-use const App\Engine\ROUNDS;
+use const App\Engine\ROUNDS_COUNT;
 
 function isEven(int $num): bool
 {
@@ -20,7 +20,7 @@ function playEven(): void
 
     $gameData = [];
 
-    for ($i = 1; $i <= ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS_COUNT; $i++) {
         $number = getRandomNumber();
         $correctAnswer = isEven($number) ? 'yes' : 'no';
         $currentRoundData = [(string) $number, $correctAnswer];

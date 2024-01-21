@@ -5,18 +5,11 @@ declare(strict_types=1);
 namespace App\Engine;
 
 const ROUNDS_COUNT = 3;
-const MIN_COMFORTABLE_TO_COUNT_NUMBER = 0;
-const MAX_COMFORTABLE_TO_COUNT_NUMBER = 100;
 
 use function cli\line;
 use function cli\prompt;
 
 use function App\Cli\sayHello;
-
-function getRandomNumber(): int
-{
-    return rand(MIN_COMFORTABLE_TO_COUNT_NUMBER, MAX_COMFORTABLE_TO_COUNT_NUMBER);
-}
 
 function explainRule(string $rule): void
 {

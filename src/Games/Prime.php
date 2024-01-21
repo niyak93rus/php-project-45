@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Games\Prime;
 
 use function App\Engine\playGame;
-use function App\Engine\getRandomNumber;
+use function App\Random\getRandomNumber;
 
 use const App\Engine\ROUNDS_COUNT;
 

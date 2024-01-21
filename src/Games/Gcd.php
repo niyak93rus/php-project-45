@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Games\Gcd;
 
 use function App\Engine\playGame;
-use function App\Engine\getRandomNumber;
+use function App\Random\getRandomNumber;
 
-use const App\Engine\ROUNDS;
+use const App\Engine\ROUNDS_COUNT;
 
 function findGcd(int $a, int $b): int
 {
@@ -24,7 +24,7 @@ function playGcd(): void
 
     $gameData = [];
 
-    for ($i = 1; $i <= ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS_COUNT; $i++) {
         $num1 = getRandomNumber();
         $num2 = getRandomNumber();
 

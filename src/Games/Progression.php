@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Games\Progression;
 
 use function App\Engine\playGame;
-use function App\Engine\getRandomNumber;
+use function App\Random\getRandomNumber;
 
-use const App\Engine\ROUNDS;
+use const App\Engine\ROUNDS_COUNT;
 
 const MIN_LENGTH = 5;
 const MAX_LENGTH = 10;
@@ -27,7 +27,7 @@ function playProgression(): void
     $rule = 'What number is missing in the progression?';
     $gameData = [];
 
-    for ($i = 1; $i <= ROUNDS; $i++) {
+    for ($i = 1; $i <= ROUNDS_COUNT; $i++) {
         $numbers = createProgression();
         $missingItemKey = array_rand($numbers);
         $correctAnswer = (string) $numbers[$missingItemKey];
