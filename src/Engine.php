@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Engine;
 
-const ROUNDS = 3;
+const ROUNDS_COUNT = 3;
 const MIN_COMFORTABLE_TO_COUNT_NUMBER = 0;
 const MAX_COMFORTABLE_TO_COUNT_NUMBER = 100;
 
