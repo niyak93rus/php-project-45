@@ -24,6 +24,7 @@
         "files": [
             "src/Autoload.php",
             "src/Cli.php",
+            "src/Random.php",
             "src/Engine.php",
             "src/Games/Calc.php",
             "src/Games/Even.php",

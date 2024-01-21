@@ -29,12 +29,9 @@ function getUserAnswer(): string
 function checkAnswer(string $userAnswer, string $correctAnswer, string $name): bool
 {
     if ($userAnswer === $correctAnswer) {
-        line('Correct!');
         return true;
     }
 
-    line("{$userAnswer} is wrong answer ;(. Correct answer was {$correctAnswer}.");
-    line("Let's try again, {$name}!");
     return false;
 }
 
@@ -54,7 +51,11 @@ function playGame(string $rule, array $gameData): void
         $userAnswer = getUserAnswer();
 
         if (checkAnswer($userAnswer, $correctAnswer, $name) === false) {
+            line("{$userAnswer} is wrong answer ;(. Correct answer was {$correctAnswer}.");
+            line("Let's try again, {$name}!");
             return;
+        } else {
+            line('Correct!');
         }
     }
 
